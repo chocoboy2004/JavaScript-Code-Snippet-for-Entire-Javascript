@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a new element in DOM</title>
+</head>
+
+<body>
+    <div class="first-cont">
+        <h1 class="first-head">Code With Rahul</h1>
+        <p class="first-para para">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste dolorem minima soluta fuga odio excepturi qui
+            aspernatur libero ex ad?
+        </p>
+    </div>
+    <div class="sec-cont">
+        <h1 class="sec-head">Code With Harry</h1>
+        <p class="sec-para para">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste dolorem minima soluta fuga odio excepturi qui
+            aspernatur libero ex ad?
+        </p>
+    </div>
+    <div class="third-cont">
+        <h1 class="third-head">Hitesh Chowdhury</h1>
+        <p class="third-para para">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste dolorem minima soluta fuga odio excepturi qui
+            aspernatur libero ex ad?
+        </p>
+    </div>
+
+    <ul>
+        <li>ONE</li>
+        <li>TWO</li>
+        <li>THREE</li>
+        <li>FOUR</li>
+    </ul>
+
+    <script>
+        const allHead = Array.from(document.querySelectorAll('h1'));
+        allHead.forEach((item) => {
+            item.innerText = 'CodeWithRahul';
+            item.style.color = 'green';
+            item.style.textDecoration = 'underline';
+        })
+
+        const allPara = Array.from(document.getElementsByClassName('para'));
+        allPara.forEach((item) => {
+            item.style.backgroundColor = 'yellow';
+            item.style.color = 'brown';
+            item.style.padding = '15px';
+            item.style.borderRadius = '15px';
+        })
+    </script>
+</body>
+
+</html>

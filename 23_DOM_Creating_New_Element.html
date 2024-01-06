@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating new element using DOM</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const createNewDiv = (text, classValue, idValue) => {
+            const div = document.createElement('div');
+            const divText = document.createTextNode(text);
+            div.appendChild(divText);
+            div.setAttribute('class' ,classValue);
+            div.setAttribute('id' , idValue);
+            const setDiv = document.body.appendChild(div);
+            return setDiv;
+        };
+
+        const myDiv = createNewDiv('First Heading', 'first-div', 'main-container');
+        myDiv.style.color = 'green';
+        myDiv.style.fontSize = '20px';
+        myDiv.style.fontWeight = 'bold';
+    </script>
+</body>
+</html>
