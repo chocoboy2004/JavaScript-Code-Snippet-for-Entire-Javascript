@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        body {
+            background-color: #414141;
+            color: aliceblue;
+        }
+        img {
+            width: 150px;
+        }
+
+        a {
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h2>Amazing Images</h2>
+    <ul class="image-container" id="images">
+        <li>
+            <img id="first-image" src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" srcset="">
+        </li>
+        <li>
+            <img id="sec-image" src="https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&w=600" alt="" srcset="">
+        </li>
+        <li>
+            <img id="third-image" src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" srcset="">
+        </li>
+        <li>
+            <img id="fourth-image" src="https://images.pexels.com/photos/709552/pexels-photo-709552.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" srcset="">
+        </li>
+        <li>
+            <a id="google" href="https://www.google.com/">Google</a>
+        </li>
+    </ul>
+</body>
+
+<script>
+    // Must Read : type, srcElement, defaultPrevented, timestamp, target, toElement
+    // currentTarget, clientX, clientY, screenX, screenY, altKey, ctrlKey, shiftKey, keyCode 
+
+    // document.getElementById('first-image').onclick = () => {
+    //     alert("It is the first image");
+    // }
+
+    // document.getElementById('first-image').addEventListener('click', function () {
+    //     alert('It is the first image');
+    // })
+
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     console.log('Ul clicled');  // 1. Ul clicked....
+    // }, false);
+
+    // document.getElementById('sec-image').addEventListener('click', function (e) {
+    //     console.log('sec-image clicked');  // 1. sec-image clicked then Ul clicked ..... event bubbling
+    // }, false);
+
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     console.log('Ul clicled');  // 1. Ul clicked....
+    // }, true);
+
+    // document.getElementById('sec-image').addEventListener('click', function (e) {
+    //     console.log('sec-image clicked');  // 1. Ul clicked then sec-image clicked ..... event bubbling
+    // }, true);
+
+
+    // document.getElementById('google').addEventListener('click', function (e) {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log('google Clicked');
+    // }, false)
+
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            const removeIt = e.target;
+            removeIt.remove();
+        }
+    })
+</script>
+</html>

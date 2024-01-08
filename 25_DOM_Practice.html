@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating, editing and deleting Elements using DOM</title>
+</head>
+<body></body>
+
+<script>
+    const createNewUl = () => {
+        const ul = document.createElement('ul');
+        const setItWithBody = document.body.appendChild(ul);
+        return setItWithBody;
+    };
+    const ul = createNewUl();
+    console.log(ul);
+
+    const createNewLi = (innerText) => {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(innerText));
+        document.querySelector('ul').appendChild(li);
+    };
+    createNewLi('Monday');
+    createNewLi('Tuesday');
+    createNewLi('Wednesday');
+    createNewLi('Thursday');
+    createNewLi('Friday');
+    createNewLi('Saturday');
+    createNewLi('Sunday');
+
+
+
+    const changingInnerText = (targetElement, content) => {
+        const newLi = document.createElement('li');
+        newLi.innerText = content;
+        targetElement.replaceWith(newLi);
+    };
+
+    const firstChild = document.querySelector('li:first-child');
+    const secondChild = document.querySelector('li:nth-child(2)');
+    const thirdChild = document.querySelector('li:nth-child(3)');
+    const fourthChild = document.querySelector('li:nth-child(4)');
+    const fifthChild = document.querySelector('li:nth-child(5)');
+    const sixthChild = document.querySelector('li:nth-child(6)');
+    const seventhChild = document.querySelector('li:last-child');
+
+    changingInnerText(firstChild, 'Sunday');
+    changingInnerText(secondChild, 'Saturday');
+    changingInnerText(thirdChild, 'Friday');
+    changingInnerText(fourthChild, 'Thursday');
+    changingInnerText(fifthChild, 'Wednesday');
+    changingInnerText(sixthChild, 'Tuesday');
+    changingInnerText(seventhChild, 'Monday');
+
+    
+    // removing two 'li'
+    const child1 = document.querySelector('li:first-child');
+    child1.remove();
+
+    const child7 = document.querySelector('li:last-child');
+    child7.remove();
+
+</script>
+</html>

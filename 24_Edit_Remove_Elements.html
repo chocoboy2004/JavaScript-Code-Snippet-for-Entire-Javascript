@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove elements in DOM</title>
+</head>
+
+<body>
+    <ul class="language">
+        <li>javaScript</li>
+    </ul>
+</body>
+
+<script>
+    const selectBody = document.body;
+    selectBody.style.backgroundColor = '#212121';
+    selectBody.style.color = '#eeeeee';
+
+    // Creating a function to create and add a listed item into it's unordered list
+    const createListItem = (parent, text) => {
+        const prnt = document.querySelector(parent);
+        const li = document.createElement('li');
+        const liText = document.createTextNode(text);
+        li.appendChild(liText);
+        const attachWithParent = prnt.appendChild(li);
+    };
+
+    createListItem('ul', 'Python');
+    createListItem('ul', 'TypeScript');
+    createListItem('ul', 'GoLang');
+
+    // We can edit values of any element by doing this below approch.
+    /*
+    -- > First create a new 'li'
+    -- > set the innerText
+    -- > replace with existing 'li'
+    */
+    const secChild = document.querySelector('li:nth-child(2)');
+    const newLi = document.createElement('li');
+    newLi.textContent = 'Mojo';
+    secChild.replaceWith(newLi);
+
+
+    // Going to edit TypeScript which is the third child of ul
+    const thirdChild = document.querySelector('li:nth-child(3)');
+    // creating a new 'li'
+    const anotherLi = document.createElement('li');
+    // set the innerText
+    anotherLi.innerText = 'Java';
+    // replace this 'anotherLi' with the existing one
+    thirdChild.replaceWith(anotherLi);
+
+
+
+    // Now I want to remove the last child 'GoLang'
+    // first select this child
+    const lastChild = document.querySelector('li:last-child');
+    lastChild.remove();
+</script>
+
+</html>
