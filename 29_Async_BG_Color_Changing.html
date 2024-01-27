@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            row-gap: 50px;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        button {
+            height: 40px;
+            width: 200px;
+            border: 1px solid #000000;
+            border-radius: 20px;
+            margin: 20px;
+        }
+    </style>
+    <title>Async background color changing</title>
+</head>
+<body>
+    <div class="header">
+        <h1 class="first-head">Press start to change color continuosly</h1>
+        <h1 class="sec-head">Press stop to not changing color continuosly</h1>
+    </div>
+    <div class="buttons">
+        <button type="submit" class="start">Start</button>
+        <button type="submit" class="stop">Stop</button>
+    </div>
+</body>
+<script>
+    let interval;
+    const body = document.querySelector('body');
+    const generateRandomColor = () => {
+        const chars = '0123456789ABCDEF';
+        let color = '#';
+        for (let i=1; i<=6; i++) {
+            color += chars[Math.floor(Math.random() * 16)];
+        }
+        body.style.backgroundColor = color;
+    }
+    
+    document.querySelector('.start').addEventListener('click', () => {
+        interval = setInterval(generateRandomColor, 1000)
+    })
+
+    document.querySelector('.stop').addEventListener('click', () => {
+        clearInterval(interval);
+        body.style.backgroundColor = '#eeeeee';
+    })
+</script>
+</html>

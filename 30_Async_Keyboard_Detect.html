@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td, tr {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <title>Keywoard Detecting</title>
+</head>
+<body>
+    <div class="table">
+
+    </div>
+    <script>
+        const table = document.querySelector('.table');
+    
+        window.addEventListener('keydown', function(e) {
+            table.innerHTML = `
+                <div>
+                    <table>
+                        <tr>
+                            <th>key</th>
+                            <th>key code</th>
+                        </tr>
+                        <tr>
+                            <td>${e.key === ' ' ? 'space' : e.key}</td>
+                            <td>${e.keyCode}</td>
+                        </tr>
+                    </table>
+                </div>
+            `;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async JavaScript</title>
+</head>
+
+<body>
+    <h2 class="first-head">Code With Rahul</h2>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+</body>
+
+<script>
+
+    //const changeName = function () {
+    //    const heading = document.querySelector('.first-head');
+    //    const text = heading.textContent = 'Chai Aur Code';
+    //    console.log(text);
+    //}
+
+    //const change = setTimeout(changeName, 2000);
+
+    //const btn = document.querySelector('#stop');
+    //btn.addEventListener('click', function (e) {
+    //    clearTimeout(change);
+    //})
+    //setTimeout(changeName, 2000);
+
+
+    const start = document.querySelector('#start');
+
+    const changeName = () => {
+        const head = document.querySelector('h2');
+        head.innerText = 'Chai Aur Code';
+    };
+
+    const startChange = () => {
+        setTimeout(changeName, 2000);
+    }
+
+    const stopChange = () => {
+        clearTimeout(startChange());
+    }
+
+    start.addEventListener('click', function (e){
+        startChange();
+    });
+
+</script>
+
+</html>
